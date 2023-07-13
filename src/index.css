@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.heroSection{
+  background-image: url('./assets/img/hero-bg.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.searchContainer{
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+.heading{
+  font-size: 3rem;
+ font-family: serif;
+ letter-spacing: 1rem;
+ font-weight: 800;
+ text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  -webkit-text-fill-color: #2c3c31;
+}
+
+.card-wrapper{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.card-wrapper:hover{
+  opacity: 0.6;
+  transition: 0.2s ease-in-out;
+}
+
+.card-wrapper:hover .apply-btn{
+  visibility: visible;
+}
+
+.apply-btn{
+  visibility: hidden;
+}
+
+
+/* loader styling */
+.loader {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  width: 70px;
+  height: 70px;
+ }
+ 
+ .loader::before,
+ .loader::after {
+  content: '';
+  border: 7px solid #02735E;
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  animation: loader 2s linear infinite;
+  opacity: 0;
+ }
+ 
+ .loader::before {
+  animation-delay: 1s;
+ }
+ 
+ @keyframes loader {
+  0% {
+   transform: scale(1);
+   opacity: 0;
+  }
+ 
+  50% {
+   opacity: 1;
+  }
+ 
+  100% {
+   transform: scale(0);
+   opacity: 0;
+  }
+ }
+
+ /* box-shadow styling for the form in the list page */
+ .listForm{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+ }
+
+/* styling for bouncing container in the list page */
+.stage {
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 59%;
+    height: 330px;
+    /* width: 100%; */
+}
+.box {
+    align-self: flex-end;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* background-color: #F44336; */
+    height: 40px;
+    margin: 0 auto 0 auto;
+    width: 100px;
+}
+.bounce-1 {
+    animation-name: bounce-1;
+    /* animation-timing-function: linear; */
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+@keyframes bounce-1 {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-50px); }
+    100% { transform: translateX(0); }
+}
+
+/* tooltip styling in mobileForm component and listing page */
+.previous:hover + .tooltip, .close:hover + .formTooltip{
+  display: block;
+}
+
+
+
+.description strong{
+  font-weight: 400;
+}
+
+.description p{
+  padding: 0;
+}
+
+.description h2{
+  /* color: #02735E; */
+  margin-top: 15px;
+  font-weight: 700;
+} 
+
+
+
+.description p:last-of-type{
+  color: #02735E;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.description p:last-of-type:hover{
+  text-decoration: underline;
+}
+
+.current{
+  color: green;
+}
+
+
+/* loading effect */
+.loadState{
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #ffff;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+
+
+/* media query for mobile device */
+@media only screen and (max-width: 600px){
+  .heroSection{
+    background-position: center;
+  }
+}
+
+/* media query for tablet devices */
+@media (min-width: 768px) and (max-width: 1024px){
+  .heroSection{
+    background-position: center;
+  }
+}
+
+   
+
