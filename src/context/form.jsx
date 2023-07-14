@@ -30,6 +30,7 @@ export const FormContextProvider = ({ children }) => {
   });
 
   const jobOptions = [
+    { value: "", label: "" },
     {
       value: "Product Management",
       label: "Product Management",
@@ -53,6 +54,7 @@ export const FormContextProvider = ({ children }) => {
       label: "Installation and Repairs",
     },
     { value: "Other", label: "Others" },
+    { value: "", label: "All" },
   ];
 
   // loading state handled
