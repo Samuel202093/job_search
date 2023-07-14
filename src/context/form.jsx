@@ -15,6 +15,7 @@ export const FormContextProvider = ({ children }) => {
   ); //the swr handles the loading, error and data state
   const [resumeName, setResumeName] = useState("");
   const [select, setSelect] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(false)
   const [currentPage, setCurrentPage] = useState(1);
   const [resumeError, setResumeError] = useState(true);
   const [showMobile, setShowMobile] = useState(false);
@@ -51,7 +52,7 @@ export const FormContextProvider = ({ children }) => {
       value: "installation and maintenance repair",
       label: "Installation and Repairs",
     },
-    { value: "Others", label: "Others" },
+    { value: "Other", label: "Others" },
   ];
 
   // loading state handled
@@ -136,8 +137,8 @@ export const FormContextProvider = ({ children }) => {
 
   // form submission in the listing page
   const handleSubmit = (e) => {
-    // e.preventDefault()
-    setLoading(true);
+    e.preventDefault()
+    // setLoading(true);
     if (
       formData.firstname === "" ||
       formData.coverLetter === "" ||
@@ -151,6 +152,7 @@ export const FormContextProvider = ({ children }) => {
       });
       setLoading(false);
       setFocused(!focused);
+      setBtnDisabled(!btnDisabled)
     } else {
       setLoading(false);
       setFocused(false);
@@ -220,6 +222,7 @@ export const FormContextProvider = ({ children }) => {
         changeCurrrentPage,
         prePage,
         numbers,
+        btnDisabled
       }}
     >
       {children}

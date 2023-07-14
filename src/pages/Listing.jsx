@@ -11,81 +11,18 @@ import { useFormContext } from '../context/form'
 
 
 const Listing = () => {
-  const {focused, resume, resumeName, resumeError, loading, formData, handleChange, handleFocus, handleSubmit, handleUpload, showMobile, setShowMobile, handleMobile} = useFormContext()
-    // const [focused, setFocused] = useState(false)
-    // const [resume, setResume] = useState(null)
-    // const [showMobile, setShowMobile] = useState(false)
-    // const [resumeName, setResumeName] = useState('')
-    // const [resumeError, setResumeError] = useState(true)
-    // const [loading, setLoading] = useState(false)
-    // const[formData, setFormData] = useState({
-    //   firstname: "",
-    //   lastname: "",
-    //   email: "",
-    //   coverLetter: ""
-    // })
+  const {focused, resume, resumeName, resumeError, loading, formData, handleChange, handleFocus, handleSubmit, handleUpload, showMobile, setShowMobile, handleMobile, btnDisabled} = useFormContext()
 
     const location = useLocation()
     const {data} = location.state
     const navigate = useNavigate()
 
-  // const handleFocus = (e)=>{
-  //   setFocused(true)
-  // }
 
     const handlePrevPage = ()=>{
         navigate(-1)
     }
 
-    console.log(data)
-
-    // const handleChange = (e)=>{
-    //   setFormData({ ...formData, [e.target.name]: e.target.value })
-    //   setFocused(false)
-    // }
-
-    // const handleUpload = (e) => {
-    //   setResume(e.target.files[0]);
-    //   setResumeName(e.target.files[0].name)
-    //   setResumeError(!resumeError)
-    // };
-
-    // const handleMobile = ()=>{
-    //   setShowMobile(!showMobile)
-    // }
-
-    
-
-
-
-    // const handleSubmit = (e)=>{
-    //   // e.preventDefault()
-    //   setLoading(true)
-    //   if (formData.firstname === ''|| formData.coverLetter==='' || formData.lastname==='' || formData.email=== '' || resume === '') {
-    //      toast.error('please enter the required fields', {
-    //       transition: Slide,
-    //       position: "top-right"})
-    //       setLoading(false)
-    //       setFocused(!focused)
-    //   }else{
-    //     setLoading(false)
-    //     setFocused(false)
-    //     setFormData({
-    //       firstname: '',
-    //       lastname: '',
-    //       email: '',
-    //       coverLetter: ''
-    //     })
-    //     setResume(null)
-    //     toast.success(`Thanks for apply for ${data.slug}`,{transition: Slide, position: "top-center"})
-
-    //   }     
-    // }
-
-    
-
-    
-    
+    // console.log(data)
 
   return (
     <div className='flex justify-between p-3 lg:p-5'>
@@ -114,7 +51,7 @@ const Listing = () => {
 
         
       {/* form container */}
-      <div className='hidden lg:block listForm h-[120vh] border-2 border-[green]y w-[35%] p-5 rounded mt-8'>
+      <div className='hidden lg:block listForm h-[125vh] border-2 border-[green]y w-[35%] p-5 rounded mt-8'>
 
         <div className='flex flex-col gap-5 mt-5'>
 
@@ -146,7 +83,7 @@ const Listing = () => {
         {focused === true ? <span className='text-sm text-[red] font-medium'>cover letter should contain 1 - 1000 characters and no special characters</span>: ''}
         </div>
 
-        <button className='flex self-center transition-all ease-in-out delay-150 px-4 py-2 font-semibold font-sans rounded border-[1px] border-transparent text-[white] bg-[#02735E] tracking-[0.05rem] hover:bg-transparent hover:text-[#02735E] hover:border-[1px] hover:border-[#02735E] hover:font-bold' onClick={handleSubmit}>{loading === true ? <Loader/>: 'submit'}</button>
+        <button className='flex self-center transition-all ease-in-out delay-150 px-4 py-2 font-semibold font-sans rounded border-[1px] border-transparent text-[white] bg-[#02735E] tracking-[0.05rem] hover:bg-transparent hover:text-[#02735E] hover:border-[1px] hover:border-[#02735E] hover:font-bold' onClick={handleSubmit} disabled={btnDisabled}>{loading === true ? <Loader/>: 'submit'}</button>
         </div>
       
       </div> 

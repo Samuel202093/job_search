@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormContext } from '../context/form'
 import { GrFormClose } from 'react-icons/gr'
+import Loader from './Loader'
 
 
 const MobileForm = () => {
