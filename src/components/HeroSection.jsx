@@ -3,14 +3,18 @@ import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-toastify'
 import Loader from './Loader';
-// import image from '../assets/img/jobsearcg.jpg'
+import Select from 'react-select';
+import { useFormContext } from '../context/form';
+
 
 const HeroSection = () => {
+    const { handleSelectChange, jobOptions, handleSearch, select } = useFormContext()
     const [show, setShow] = useState(false)
     const [email, setEmail] = useState('')
     const [scrollHeight, setscrollHeight] = useState(window.scrollY);
     const [loading, setLoading] = useState(false)
 
+    // the function is to close the the newsletter div when open if height of the screen is greater than 300px
     useEffect(() => {
       const handleScrollHeight = () => {
         if (scrollHeight > 300 && show === true) {
@@ -26,15 +30,17 @@ const HeroSection = () => {
       };
     });
 
-
+// function to open the newsletter modal or show the newsletter div
     const handleModal = ()=>{
         setShow(!show)
     }
 
+    // handles the onchange attribute for the newsletter subscribe
    const handleChange = (e)=>{
       setEmail(e.target.value)
     }
 
+    // function to subscribe to newsletters
     const handleSubscribe = (e)=>{
       e.preventDefault()
       if (email === '') {
@@ -53,9 +59,7 @@ const HeroSection = () => {
           setEmail('')
           setShow(!show)
       }
-    }
-
-    
+    } 
 
   return (
     <div className="heroSection h-[75vh] w-[100%] flex justify-center items-center">
@@ -76,9 +80,10 @@ const HeroSection = () => {
             <span className='tracking-[0.3rem] font-bold text-[white]'>Search for your dream jobs!!!!!</span>
         </div>
         <div className='flex flex-col gap-4'>
-      <input type="text" name="" className='w-[100%] h-[8vh] text-xl font-semibold px-3 text-[#000] focus:outline-none'/>
-      <button className='flex self-center border-2 border-transparent px-[1.3rem] py-2 text-[1.1rem] bg-[#2c3c31] text-[#fff] tracking-[0.35rem] font-bold hover:border-[2px] hover:border-white hover:bg-transparent hover:text-[#2c3c31] ease-in delay-150 transition-all'>Search</button>
-      {/* <h3>red</h3> */}
+      
+      <Select options={jobOptions} onChange={handleSelectChange} value={jobOptions.find(obj => obj.value === select)}/>
+      <button className='flex self-center border-2 border-transparent px-[1.3rem] py-2 text-[1.1rem] bg-[#2c3c31] text-[#fff] tracking-[0.35rem] font-bold hover:border-[2px] hover:border-white hover:bg-transparent hover:text-[#2c3c31] ease-in delay-150 transition-all' onClick={handleSearch}>{loading === true? <Loader/>: "Search"}</button>
+     
       </div>
       </div>
     </div>
