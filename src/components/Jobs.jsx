@@ -5,9 +5,9 @@ import { useFormContext } from '../context/form'
 const Jobs = () => {
     let {data, finalResult, select, numbers, prePage, currentPage, changeCurrrentPage,nextPage} = useFormContext()
   
-    // console.log(data.data)
+    console.log(data.data)
   return (
-    <div className='flex flex-col gap-3 items-center w-[100%] min-h-[80vh] mt-[5rem] md:mt-[1.5rem] lg:mt-[5rem] border-2y border-[red]y'>  
+    <div className='flex flex-col gap-3 items-center w-[100%] min-h-[80vh] px-2 md:px-0 mt-[5rem] md:mt-[1.5rem] lg:mt-[5rem] border-2y border-[red]y'>  
         {finalResult(data.data, select)}
 
         {select === '' ? <Pagination numbers={numbers} currentPage={currentPage} changeCurrrentPage={changeCurrrentPage} nextPage={nextPage} prePage={prePage}/>: ''}

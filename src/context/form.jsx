@@ -32,8 +32,8 @@ export const FormContextProvider = ({ children }) => {
   const jobOptions = [
     { value: "", label: "" },
     {
-      value: "Product Management",
-      label: "Product Management",
+      value: "Project Management",
+      label: "Project Management",
     },
     { value: "Marketing Manager", label: "Marketing Manager" },
     { value: "IT", label: "I.T" },
@@ -46,6 +46,7 @@ export const FormContextProvider = ({ children }) => {
       value: "System and Network Administration",
       label: "System and Network Administration",
     },
+    {value: 'Graphic Arts and Communication Design', label:'Graphics'},
     { value: "Social Media Manager", label: "Social Media Manager" },
     { value: "HR", label: "Human Resource" },
     { value: "Computer software", label: "Computer Software" },
@@ -117,10 +118,10 @@ export const FormContextProvider = ({ children }) => {
   // function for modal in mobile device
   const handleMobile = () => {
     setShowMobile(!showMobile);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    }); // scrolls to the top of the page
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // }); // scrolls to the top of the page
     document.body.style.overflow = "hidden"; // to make the parent body not to scroll when the modal opens
   };
 

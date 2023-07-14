@@ -13,10 +13,10 @@ const MobileForm = () => {
     }
 
   return (
-    <div className='listForm fixed top-[6%] left-0 z-[1000] bg-[rgba(0,0,0,0.7)] w-[100%] border-2y border-[red]y h-[153vh] overflow-hidden'>
+    <div className='listForm fixed top-[0%] left-0 z-[1000] bg-[rgba(0,0,0,0.8)] bg-whitey w-[100%] border-2y border-[red]y h-[153vh] overflow-hidden'>
        
     <div className='hiddeny lg:blocky listForm absolutey h-[120vh] w-[100%] p-3 rounded mt-8'>
-    <GrFormClose className='close fixed top-[1%] right-[0%] z-[1000] text-4xl cursor-pointer' onClick={handleClose}/>
+    <GrFormClose className='close fixed top-[1%] right-[3%] bg-[white] rounded-sm z-[1000] text-4xl cursor-pointer' onClick={handleClose}/>
     <span className='formTooltip hidden fixed top-[1%] right-[10%] border-[1px] border-[black] px-2 py-[0.2rem] transition-all delay-150 ease-in'>close form</span>
     <div className='flex flex-col gap-5 mt-5'>
 
