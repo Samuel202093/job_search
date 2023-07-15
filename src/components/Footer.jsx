@@ -4,6 +4,8 @@ import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-toastify'
 import Loader from './Loader';
+import { GoMoveToTop } from 'react-icons/go'
+
 
 const Footer = () => {
   const [email, setEmail] = useState('')
@@ -36,6 +38,11 @@ const Footer = () => {
 
   return (
     <footer className='flex flex-col lg:flex-row justify-around bg-[#02735E] min-h-[20vh] w-[100%] p-2 mt-5'>
+
+        {/* Go to top */}
+        {/* <div className='flex justify-center items-center w-[40px] h-[40px] border-2y border-red-500y absolute bottom-[10%]y bottom-[-215%] right-[3%] z-[1000] rounded-[50%] text-[#E4F2E7] bg-[#ee781d] font-bold'>
+            <GoMoveToTop className='text-2xl font-bold'/>
+        </div> */}
       
 
       {/* contact wrapper */}

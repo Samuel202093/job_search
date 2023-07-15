@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import useSWR from "swr";
 import Card from "../components/Card";
+import imgError from '../assets/img/searchError.gif'
 
 //using swr to fetch data
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -188,7 +189,9 @@ export const FormContextProvider = ({ children }) => {
     let filteredJob = jobs.slice(firstIndex, lastIndex);
     if (query) {
       filteredJob = filteredResult;
-      return filteredJob.map((x, i) => <Card key={i} data={x} />);
+    return (filteredJob.length > 0 ? filteredJob.map((x, i) => <Card key={i} data={x}/>): <div className="flex flex-col justify-center items-center gap-2 border-2y border-red-700y min-h-[40vh] w-[100%] lg:w-[85%]"><img src={imgError} className="w-[100%] lg:w-[30%] h-[50vh]"/> <h1 className="text-xl font-semibold">Oops! Result not found</h1>
+      <button className="bg-[#02735E] text-[#E4F2E7] font-semibold rounded px-3 py-[0.3rem] " onClick={()=> window.location.reload(true)}>Refresh</button>
+    </div>)
     }
     return filteredJob.map((x, i) => <Card key={i} data={x} />);
   };

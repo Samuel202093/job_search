@@ -74,7 +74,7 @@ const HeroSection = () => {
       
         
       {/* Job Zone */}
-      <div className='searchContainer flex flex-col gap-5 min-w-[40%] md:min-w-[70%] lg:min-w-[40%] min-h[20vh] border p-[0.3rem] lg:p-[1.5rem] backdrop-blur-[0px]y lg:backdrop-blur-sm mt-[7rem] md:mt-0 py-6 lg:py-5'>
+      <div className='searchContainer flex flex-col gap-5 min-w-[40%] md:min-w-[70%] lg:min-w-[40%] min-h[30vh] border p-[0.3rem] lg:p-[1.5rem] backdrop-blur-[0px]y lg:backdrop-blur-sm mt-[7rem] md:mt-0 py-6 lg:py-5'>
         <div className='flex flex-col justify-center items-center w-[100%]y'>
         <h1 className='heading'>JOBZONE</h1>
             <span className='tracking-[0.3rem] font-bold text-[white]'>Search for your dream jobs!!!!!</span>
@@ -82,7 +82,7 @@ const HeroSection = () => {
         <div className='flex flex-col gap-4'>
       
       <Select options={jobOptions} onChange={handleSelectChange} value={jobOptions.find(obj => obj.value === select)}/>
-      <button className='flex self-center border-2 border-transparent px-[1.3rem] py-2 text-[1.1rem] bg-[#2c3c31] text-[#fff] tracking-[0.35rem] font-bold hover:border-[2px] hover:border-white hover:bg-transparent hover:text-[#2c3c31] ease-in delay-150 transition-all' onClick={handleSearch}>{loading === true? <Loader/>: "Search"}</button>
+      {/* <button className='flex self-center border-2 border-transparent px-[1.3rem] py-2 text-[1.1rem] bg-[#2c3c31] text-[#fff] tracking-[0.35rem] font-bold hover:border-[2px] hover:border-white hover:bg-transparent hover:text-[#2c3c31] ease-in delay-150 transition-all' onClick={handleSearch}>{loading === true? <Loader/>: "Search"}</button> */}
      
       </div>
       </div>
