@@ -67,8 +67,8 @@ const HeroSection = () => {
 
         {/* hidden subscribe container */}
 
-        {show && <div className='absolute flex justify-around lg:justify-between top-[10%] md:top-[10%] left-[0%] md:left-[15%] lg:left-[30%] w-[100%] md:w-[80%] lg:w-[40%] h-[9vh] md:h-[7vh] lg:h-[7vh]'>
-            <input type="email" name="email" id="" className='w-[77%] md:w-[85%] lg:w-[85%] px-3 text-xl font-semibold text-[#000] focus:outline-none' placeholder='Enter your Email for Newsletter' onChange={handleChange}/>
+        {show && <div className='absolute flex justify-around lg:justify-between top-[10%] md:top-[10%] left-[0%] md:left-[15%] lg:left-[30%] w-[100%] md:w-[80%] lg:w-[40%] h-[8vh] md:h-[7vh] lg:h-[7vh]'>
+            <input type="email" name="email" id="" className='w-[77%] md:w-[85%] lg:w-[85%] px-3 text-xl font-normal text-[#000] focus:outline-none' placeholder='Enter your Email for Newsletter' onChange={handleChange}/>
             <button className='bg-[#2c3c31] text-[#fff] px-3 py-[0.85rem] tracking-[0.15rem] font-semibold text-sm' onClick={handleSubscribe}>{loading === true? <Loader/>: "SUBMIT"}</button>
         </div> }
       

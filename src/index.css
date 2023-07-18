@@ -38,9 +38,20 @@
   visibility: visible;
 }
 
-/* .apply-btn{
-  visibility: hidden;
-} */
+/* styling for form error  */
+.error{
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+
+input:invalid[focused = "true"] ~ .error, textarea:invalid[focused = "true"] ~ .error{
+  display: block;
+}
+
+input:invalid[focused = "true"], textarea:invalid[focused = "true"]{
+  border: 1px solid red;
+}
 
 
 /* loader styling */
@@ -48,7 +59,7 @@
   border: 0 solid transparent;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -203,6 +214,16 @@
   .heroSection{
     background-position: center;
   }
+
+  .loader {
+    top: 35%;
+    left: 40%;
+   }
+
+   .listForm{
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    box-shadow: none;
+   }
 }
 
 /* media query for tablet devices */

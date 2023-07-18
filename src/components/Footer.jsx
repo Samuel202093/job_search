@@ -4,7 +4,7 @@ import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-toastify'
 import Loader from './Loader';
-import { GoMoveToTop } from 'react-icons/go'
+// import { GoMoveToTop } from 'react-icons/go'
 
 
 const Footer = () => {

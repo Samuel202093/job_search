@@ -8,7 +8,7 @@ const Card = (props) => {
 
   return (
     <div className="card-wrapper flex justify-between w-[100%] lg:w-[85%] min-h-[22vh] border-[1px] border-[red]y bg-[#014040] cursor-pointer text-[#E4F2E7] rounded">
-      <div className="flex flex-col gap-3 md:gap-3 lg:gap-1 md:min-w-[30%] min-w-[100%] h-full px-4 py-2 lg:py-2 md:py-7 border-2y border-[rgb(255,0,0)]y">
+      <div className="flex flex-col gap-3 md:gap-3 lg:gap-1 md:min-w-[30%] min-w-[100%] h-full px-3 py-2 lg:py-2 md:py-7 border-2y border-[rgb(255,0,0)]y">
         <h1 className="flex text-xl font-bold ">
           <BsStars className="text-xl text-[#e4f2e7] mr-2 mt-[0.2rem]" />
           {data.title.slice(0, 50)}
@@ -26,10 +26,10 @@ const Card = (props) => {
         </div>
 
         <div className="flex gap-5">
-          <span className="font-bold bg-[#E4F2E7] text-[#000] px-4 text-[1.1rem] rounded">
+          <span className="font-bold bg-[#E4F2E7] text-[#000] px-4 py-[0.3rem] text-[1.1rem] rounded">
             {data.remote === false ? "onsite" : "remote"}
           </span>
-          <p className="bg-[#E4F2E7] rounded text-[#000] px-3 py-[0.15rem] font-bold">
+          <p className="bg-[#E4F2E7] rounded text-[#000] px-3 py-[0.4rem] font-bold">
             <span>$90k - </span>
             <span>$110k</span>
           </p>

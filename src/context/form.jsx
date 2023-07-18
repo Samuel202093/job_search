@@ -1,8 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import useSWR from "swr";
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide } from 'react-toastify'
 import Card from "../components/Card";
 import imgError from '../assets/img/searchError.gif'
+import { jobOptions } from "../data/data";
+
 
 //using swr to fetch data
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -21,7 +26,12 @@ export const FormContextProvider = ({ children }) => {
   const [resumeError, setResumeError] = useState(true);
   const [showMobile, setShowMobile] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [focused, setFocused] = useState(false);
+  const [focused, setFocused] = useState({
+            firstname: false,
+            lastname: false,
+            email: false,
+            coverLetter: false
+  });
   const [resume, setResume] = useState(null);
   const [formData, setFormData] = useState({
     firstname: "",
@@ -29,35 +39,6 @@ export const FormContextProvider = ({ children }) => {
     email: "",
     coverLetter: "",
   });
-
-  const jobOptions = [
-    { value: "", label: "" },
-    {
-      value: "Project Management",
-      label: "Project Management",
-    },
-    { value: "Marketing Manager", label: "Marketing Manager" },
-    { value: "IT", label: "I.T" },
-    { value: "Software Development", label: "Software Development" },
-    { value: "accounting and finance", label: "Accounting" },
-    { value: "Administration", label: "Administration" },
-    { value: "Customer Service", label: "Customer Service" },
-    { value: "Helpdesk", label: "Helpdesk" },
-    {
-      value: "System and Network Administration",
-      label: "System and Network Administration",
-    },
-    {value: 'Graphic Arts and Communication Design', label:'Graphics'},
-    { value: "Social Media Manager", label: "Social Media Manager" },
-    { value: "HR", label: "Human Resource" },
-    { value: "Computer software", label: "Computer Software" },
-    {
-      value: "installation and maintenance repair",
-      label: "Installation and Repairs",
-    },
-    { value: "Other", label: "Others" },
-    { value: "", label: "All" },
-  ];
 
   // loading state handled
   if (isLoading) return <div className="loader"></div>;
@@ -113,7 +94,7 @@ export const FormContextProvider = ({ children }) => {
   };
 
   const handleFocus = (e) => {
-    setFocused(true);
+    setFocused({...focused, [e.target.name]: "true"})
   };
 
   // function for modal in mobile device
@@ -139,16 +120,16 @@ export const FormContextProvider = ({ children }) => {
     setResumeError(!resumeError);
   };
 
+
   // form submission in the listing page
   const handleSubmit = (e) => {
     e.preventDefault()
-    // setLoading(true);
     if (
-      formData.firstname === "" ||
-      formData.coverLetter === "" ||
-      formData.lastname === "" ||
-      formData.email === "" ||
-      resume === ""
+      (formData.firstname === "" || formData.firstname.length < 4) ||
+      (formData.coverLetter === "" || formData.coverLetter.length < 10) ||
+      (formData.lastname === "" || formData.lastname.length < 4) ||
+     (formData.email === "")||
+      (resume === "")
     ) {
       toast.error("please enter the required fields", {
         transition: Slide,
@@ -156,7 +137,6 @@ export const FormContextProvider = ({ children }) => {
       });
       setLoading(false);
       setFocused(!focused);
-      setBtnDisabled(!btnDisabled)
     } else {
       setLoading(false);
       setFocused(false);
@@ -167,10 +147,12 @@ export const FormContextProvider = ({ children }) => {
         coverLetter: "",
       });
       setResume(null);
-      toast.success(`Thanks for apply for ${data.slug}`, {
+      setShowMobile(!showMobile)
+      toast.success(`${formData.firstname} ${formData.lastname} thanks for applying`, {
         transition: Slide,
-        position: "top-center",
+        position: "top-right",
       });
+      document.body.style.overflow = 'unset'
     }
   };
 
@@ -228,6 +210,7 @@ export const FormContextProvider = ({ children }) => {
         changeCurrrentPage,
         prePage,
         numbers,
+        // formError,
         btnDisabled
       }}
     >
@@ -238,4 +221,4 @@ export const FormContextProvider = ({ children }) => {
 
 export const useFormContext = () => {
   return useContext(formContext);
-};
+}
