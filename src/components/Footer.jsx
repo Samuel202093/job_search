@@ -48,7 +48,7 @@ const Footer = () => {
       {/* contact wrapper */}
       <div className='flex flex-col gap-4 p-3'>
         <h2 className='font-sans font-bold text-[1rem] tracking-[0.05rem] text-[#E4F2E7]'>CONTACT</h2>
-        <span className='text-[#E4F2E7]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, aliquam.</span>
+        <span className='text-[#E4F2E7]'>	Schäfers Gärten 14, Frankfurt Am Main, 60431</span>
         <span className='flex gap-5 text-[1.35rem] text-[#E4F2E7] cursor-pointer'><BsFacebook className='transition-all ease-in-out delay-75 font-semibold hover:text-[#00acee]'/> <BsTwitter className='transition-all ease-in-out delay-75 font-semibold hover:text-[#00acee]'/> <BsInstagram className='transition-all ease-in-out delay-75 font-semibold hover:text-[#f06413]y hover:text-[#fa7e1e]'/> <BsLinkedin className='transition-all ease-in-out delay-75 font-semibold hover:text-[#00acee]'/> <BsYoutube className='transition-all ease-in-out delay-75 font-semibold hover:text-[#CD201F]'/> </span>
       </div>
       {/* <Loader/> */}
